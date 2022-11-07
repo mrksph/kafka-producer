@@ -14,6 +14,8 @@ import java.util.Map;
 public class KafkaAdminConfig {
     @Value(value = "${kafka.bootstrapAddress}")
     private String bootstrapAddress;
+    @Value(value = "${kafka.topicName}")
+    private String topicName;
 
     @Bean
     public KafkaAdmin kafkaAdmin() {
@@ -24,6 +26,6 @@ public class KafkaAdminConfig {
 
     @Bean
     public NewTopic topic1() {
-        return new NewTopic("the-topic", 1, (short) 1);
+        return new NewTopic(topicName, 1, (short) 1);
     }
 }

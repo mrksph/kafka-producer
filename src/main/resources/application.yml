@@ -4,3 +4,4 @@ spring:
 
 kafka:
   bootstrapAddress: localhost:9092
+  topicName: the-topic

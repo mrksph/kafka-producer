@@ -11,7 +11,7 @@ import org.springframework.util.concurrent.ListenableFutureCallback;
 
 @Component
 @RequiredArgsConstructor
-public class MyProducer {
+public class KafkaProducer {
     @Value(value = "${kafka.topicName}")
     private String topicName;
 

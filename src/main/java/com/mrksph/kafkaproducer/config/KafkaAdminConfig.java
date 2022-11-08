@@ -5,6 +5,7 @@ import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.kafka.config.TopicBuilder;
 import org.springframework.kafka.core.KafkaAdmin;
 
 import java.util.HashMap;
@@ -25,7 +26,11 @@ public class KafkaAdminConfig {
     }
 
     @Bean
-    public NewTopic topic1() {
-        return new NewTopic(topicName, 1, (short) 1);
+    public NewTopic newTopic() {
+        return TopicBuilder
+                .name(topicName)
+                .partitions(1)
+                .replicas(1)
+                .build();
     }
 }
